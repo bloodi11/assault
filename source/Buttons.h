@@ -17,7 +17,7 @@ private:
 	const float _x = 700;
 	const float _y = 525;
 public:
-	
+	HourGlassButton(TexturePack texturePack);
 	HourGlassButton();
 };
 
@@ -27,7 +27,7 @@ private:
 	const float _x = 325;
 	const float _y = 525;
 public:
-	
+	QuestionMarkButton(TexturePack texturePack);
 	QuestionMarkButton();
 };
 
@@ -37,6 +37,7 @@ private:
 	const float _x = 385;
 	const float _y = 525;
 public:
+	RecruitSoldierButton(TexturePack texturePack);
 	RecruitSoldierButton();
 };
 
@@ -47,6 +48,7 @@ private:
 	const float _x = 445;
 	const float _y = 525;
 public:
+	AssaultButton(TexturePack texturePack);
 	AssaultButton();
 };
 

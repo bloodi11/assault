@@ -51,11 +51,11 @@ public:
 class GameManager {
 private:
 	std::unique_ptr<Board> _board;
-	std::unique_ptr<Root> _root;
+	Root _root;
 	
 public:
 	GameManager();
-	GameManager(std::unique_ptr<Root> &root);
+	GameManager(Root &root);
 	~GameManager();
 
 	int getTurn();

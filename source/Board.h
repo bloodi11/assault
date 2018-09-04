@@ -16,31 +16,27 @@ class WarriorBlue;
 
 
 class Board {   
-private:
-	std::unique_ptr<ITile> panelTile = std::make_unique<PanelTile>();
-	std::unique_ptr<ITile> actionpointsTile = std::make_unique<ActionPointsTile>();
-	std::unique_ptr<ITile> goldTile = std::make_unique<GoldTile>();	
-	
 public:
+	TexturePack tP;
+
 	std::array<std::array<std::shared_ptr<ITile>, 8>, 5> _area = { {
-		{ std::make_unique<GrassTile>() , std::make_unique<GrassTile>(), std::make_unique<GrassTile>(), std::make_unique<GrassTile>(), std::make_unique<GrassTile>(), std::make_unique<GrassTile>(), std::make_unique<GrassTile>(), std::make_unique<GrassTile>() },
-		{ std::make_unique<GrassTile>() , std::make_unique<CastleRedTile>(), std::make_unique<GrassTile>(), std::make_unique<GrassTile>(), std::make_unique<GrassTile>(), std::make_unique<GrassTile>(), std::make_unique<GrassTile>(), std::make_unique<GrassTile>() },
-		{ std::make_unique<GrassTile>() , std::make_unique<GrassTile>(), std::make_unique<GrassTile>(), std::make_unique<GrassTile>(), std::make_unique<GrassTile>(), std::make_unique<GrassTile>(), std::make_unique<GrassTile>(), std::make_unique<GrassTile>() },
-		{ std::make_unique<GrassTile>() , std::make_unique<GrassTile>(), std::make_unique<GrassTile>(), std::make_unique<GrassTile>(), std::make_unique<GrassTile>(), std::make_unique<GrassTile>(), std::make_unique<CastleBlueTile>(), std::make_unique<GrassTile>() },
-		{ std::make_unique<GrassTile>() , std::make_unique<GrassTile>(), std::make_unique<GrassTile>(), std::make_unique<GrassTile>(), std::make_unique<GrassTile>(), std::make_unique<GrassTile>(), std::make_unique<GrassTile>(), std::make_unique<GrassTile>() },
+		{ std::make_unique<GrassTile>(tP) , std::make_unique<GrassTile>(tP), std::make_unique<GrassTile>(tP), std::make_unique<GrassTile>(tP), std::make_unique<GrassTile>(tP), std::make_unique<GrassTile>(tP), std::make_unique<GrassTile>(tP), std::make_unique<GrassTile>(tP) },
+		{ std::make_unique<GrassTile>(tP) , std::make_unique<CastleRedTile>(tP), std::make_unique<GrassTile>(tP), std::make_unique<GrassTile>(tP), std::make_unique<GrassTile>(tP), std::make_unique<GrassTile>(tP), std::make_unique<GrassTile>(tP), std::make_unique<GrassTile>(tP) },
+		{ std::make_unique<GrassTile>(tP) , std::make_unique<GrassTile>(tP), std::make_unique<GrassTile>(tP), std::make_unique<GrassTile>(tP), std::make_unique<GrassTile>(tP), std::make_unique<GrassTile>(tP), std::make_unique<GrassTile>(tP), std::make_unique<GrassTile>(tP) },
+		{ std::make_unique<GrassTile>(tP) , std::make_unique<GrassTile>(tP), std::make_unique<GrassTile>(tP), std::make_unique<GrassTile>(tP), std::make_unique<GrassTile>(tP), std::make_unique<GrassTile>(tP), std::make_unique<CastleBlueTile>(tP), std::make_unique<GrassTile>(tP) },
+		{ std::make_unique<GrassTile>(tP) , std::make_unique<GrassTile>(tP), std::make_unique<GrassTile>(tP), std::make_unique<GrassTile>(tP), std::make_unique<GrassTile>(tP), std::make_unique<GrassTile>(tP), std::make_unique<GrassTile>(tP), std::make_unique<GrassTile>(tP) },
 		} };
 
-	std::unique_ptr<IButton> hourglassButton = std::make_unique<HourGlassButton>();
-	std::unique_ptr<IButton> questionmarkButton = std::make_unique<QuestionMarkButton>();
-	std::unique_ptr<IButton> recruitSoldierButton = std::make_unique<RecruitSoldierButton>();
-	std::unique_ptr<IButton> assaultButton = std::make_unique<AssaultButton>();
+	std::unique_ptr<IButton> hourglassButton = std::make_unique<HourGlassButton>(tP);
+	std::unique_ptr<IButton> questionmarkButton = std::make_unique<QuestionMarkButton>(tP);
+	std::unique_ptr<IButton> recruitSoldierButton = std::make_unique<RecruitSoldierButton>(tP);
+	std::unique_ptr<IButton> assaultButton = std::make_unique<AssaultButton>(tP);
 
 	std::unique_ptr<Text> _goldText;
 	std::unique_ptr<Text> _actionPointsText;
 
-	Board(std::unique_ptr<Root> &root);
-	~Board();
+	Board(Root &root);
 
-	void setText(std::unique_ptr<Root> &root);
-	void actualize(std::unique_ptr<Root> &root);
+	void setText(Root &root);
+	void actualize(Root &root);
 };
