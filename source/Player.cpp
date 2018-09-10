@@ -32,14 +32,14 @@ std::shared_ptr<PlayerBlue> GameManager::getPlayerBlue() {
 return playerBlue;
 }*/
 
-void PlayerRed::recruitSoldier(std::unique_ptr<Board> &board) {
+void PlayerRed::recruitSoldier(Board& board) {
 	if (_gold >= 2 && _actionPoints >= 1) {
-		std::unique_ptr<IWarrior> warriorRed = std::make_unique<WarriorRed>(board->tP);
-		if (typeid(*board->_area[2][1]) != typeid(WarriorRed)){
+		std::unique_ptr<IWarrior> warriorRed = std::make_unique<WarriorRed>(board.tP);
+		if (typeid(board._area[2][1]) != typeid(WarriorRed)){
 			_gold = _gold - 2;
 			_actionPoints = _actionPoints - 1;
 
-			board->_area[2][1] = std::move(warriorRed);
+			board._area[2][1] = std::move(warriorRed);
 
 			std::cout << "player-red recruit an infantry" << std::endl;
 		}
@@ -58,14 +58,14 @@ PlayerBlue::PlayerBlue() {
 	setGold(4);
 }
 
-void PlayerBlue::recruitSoldier(std::unique_ptr<Board> &board) {
+void PlayerBlue::recruitSoldier(Board &board) {
 	if (_gold >= 2 && _actionPoints >= 1) {
-		std::unique_ptr<IWarrior> warriorBlue = std::make_unique<WarriorBlue>(board->tP);
-		if (typeid(*board->_area[2][6]) != typeid(WarriorBlue)) {
+		std::unique_ptr<IWarrior> warriorBlue = std::make_unique<WarriorBlue>(board.tP);
+		if (typeid(board._area[2][6]) != typeid(WarriorBlue)) {
 			_gold = _gold - 2;
 			_actionPoints = _actionPoints - 1;
 
-			board->_area[2][6] = std::move(warriorBlue);
+			board._area[2][6] = std::move(warriorBlue);
 
 			std::cout << "player-blue recruit an infantry" << std::endl;
 		}

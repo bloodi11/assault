@@ -14,7 +14,7 @@ public:
 	void setGold(int gold);
 	int getActionPoints();
 	void setActionPoints(int actionPoints);
-	virtual void recruitSoldier(std::unique_ptr<Board> &board) = 0;
+	virtual void recruitSoldier(Board &board) = 0;
 };
 
 //_________________________________________________RED
@@ -25,7 +25,7 @@ private:
 public:
 
 	PlayerRed();
-	void recruitSoldier(std::unique_ptr<Board> &board) override;
+	void recruitSoldier(Board &board) override;
 };
 
 //_______________________________________________________BLUE
@@ -35,5 +35,5 @@ private:
 
 public:
 	PlayerBlue();
-	void recruitSoldier(std::unique_ptr<Board> &board) override;
+	void recruitSoldier(Board &board) override;
 };

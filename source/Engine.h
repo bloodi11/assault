@@ -8,7 +8,6 @@
 #include <array>
 #include <string>
 #include <iostream>
-#include <thread>
 #include <SFML\Graphics.hpp>
 
 class Window;
@@ -32,7 +31,7 @@ class Window : public sf::RenderWindow {
 private:
 	const int _screenWidth = 800;
 	const int _screenHeight = 600;
-	const int _fps = 60;
+	const int _fps = 30;
 
 public:
 	Window();

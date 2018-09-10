@@ -61,6 +61,8 @@ void GameManager::waitForEvent() {
 	
 	while (_root._window->pollEvent(_root._event)) {
 		e = 1;
+		_board->actualize(_root);
+
 	
 		if (_root._event.type == sf::Event::Closed) {
 			_root._window->close();
@@ -83,11 +85,11 @@ void GameManager::waitForEvent() {
 		if (_board->recruitSoldierButton->getGlobalBounds().contains(_root._window->mapPixelToCoords(_root._mouse.getPosition(*_root._window))) && _root._event.mouseButton.button == _root._mouse.Left) {
 			if (_root._event.type == _root._event.MouseButtonReleased) {
 				if (_root._turnOfPlayer == 1) {
-					_root.playerRed->recruitSoldier(_board);
+					_root.playerRed->recruitSoldier(*_board);
 					_board->actualize(_root);
 				}
 				else if (_root._turnOfPlayer == 2) {
-					_root.playerBlue->recruitSoldier(_board);
+					_root.playerBlue->recruitSoldier(*_board);
 					_board->actualize(_root);
 				}
 			}
@@ -474,7 +476,6 @@ void GameManager::waitForEvent() {
 		}
 
 		//___________________________________________________________
-
 
 	}
 }
